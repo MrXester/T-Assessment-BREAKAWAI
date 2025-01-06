@@ -27,17 +27,22 @@
 - ML Engineering:
 
 ## Code Summary
-- [Python]() ⇒ Python Code folder with the ETL and ML files:
-  - [ETL]() → ETL pipeline designed for Main Objective 1;
-  - [Models]() → ML models designed for Main Objective 2;
+- [Python](/02_Python) ⇒ Python Code folder with the ETL and ML files:
+  - [ETL](/02_Python/script_1_ETL.py) → ETL pipeline designed for Main Objective 1;
+  - [Models](/02_Python/script_2_ML.py) → ML models designed for Main Objective 2;
   - [Visualization]() → Data visualization and Model explanation;
 
-- [SQL]() ⇒ SQL queries folder:
+
+- [Aux Modules](/02_Python/auxiliary_modules) ⇒ Python Code with auxiliary scripts and functions:
+
+- [SQL](/03_SQL) ⇒ SQL queries folder:
   - [Queries]() → SQL queries used as auxiliary methods to the [ETL]() pipeline;
 
-- [Data]() ⇒ Data folder with the required CSVs for execution;
+- [Data](/01_CSV) ⇒ Data folder with the required CSVs for execution;
 
-- [Config]() ⇒ Config file for global variables and adjustments to the script;
+- [Config](config.cfg) ⇒ Config file for global variables and adjustments to the script;
+
+- [Requirements](requirements.txt) ⇒ File with python packages requirements on the running system - "pip install -r requirements.txt" [Stack Overflow](https://stackoverflow.com/questions/7225900/how-can-i-install-packages-using-pip-according-to-the-requirements-txt-file-from);
 
 
 ## Legend
