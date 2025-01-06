@@ -16,6 +16,11 @@
 - Deadline <2025-01-15>
 
 ## Proposed Tasks
+- Problem understanding:
+  - Prepare Git (🚩) <>
+  - Define tasks (🚩) <>
+  - Understand Data (🚩) <>
+  - Prepare file hierarchy (🚩) <>
 
 - ETL pipeline:
 
@@ -24,7 +29,7 @@
 ## Code Summary
 - [Python]() ⇒ Python Code folder with the ETL and ML files:
   - [ETL]() → ETL pipeline designed for Main Objective 1;
-  - [Models]() → ETL pipeline designed for Main Objective 2;
+  - [Models]() → ML models designed for Main Objective 2;
   - [Visualization]() → Data visualization and Model explanation;
 
 - [SQL]() ⇒ SQL queries folder:
