@@ -1,5 +1,5 @@
 # Technical Assessment for Breakawai
-##(Breakawai) Data Scientist Trainee - Technical Assessment
+## (Breakawai) Data Scientist Trainee - Technical Assessment
 
 ### Set Objectives
 - Create an ETL script to prepare a dataset for analysis:
