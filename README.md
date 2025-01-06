@@ -1,7 +1,7 @@
 # Technical Assessment for Breakawai
-## (Breakawai) Data Scientist Trainee - Technical Assessment
+### (Breakawai) Data Scientist Trainee - Technical Assessment
 
-### Set Objectives
+## Set Objectives
 - Create an ETL script to prepare a dataset for analysis:
   - Join the 3 Procure-to-Pay CSV files into one dataset, ensuring the validity and quality of the data; (🚩) <>
   - Add 2 new attributes to the dataset based on the Start Timestamp; (🚩) <>
@@ -15,21 +15,21 @@
 
 - Deadline <2025-01-15>
 
-### Proposed Tasks
+## Proposed Tasks
 
 - ETL pipeline:
 
 - ML Engineering:
 
-### Code Summary
-[Python]() ⇒ Python Code folder with the ETL and ML files:
+## Code Summary
+- [Python]() ⇒ Python Code folder with the ETL and ML files:
   - [ETL]() → ETL pipeline designed for Main Objective 1;
   - [Models]() → ETL pipeline designed for Main Objective 2;
   - [Visualization]() → Data visualization and Model explanation;
 
-[SQL]() ⇒ SQL queries folder:
+- [SQL]() ⇒ SQL queries folder:
   - [Queries]() → SQL queries used as auxiliary methods to the [ETL]() pipeline;
 
-[Data]() ⇒ Data folder with the required CSVs for execution;
+- [Data]() ⇒ Data folder with the required CSVs for execution;
 
-[Config]() ⇒ Config file for global variables and adjustments to the script;
+- [Config]() ⇒ Config file for global variables and adjustments to the script;
