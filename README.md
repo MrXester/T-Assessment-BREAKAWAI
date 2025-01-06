@@ -17,10 +17,10 @@
 
 ## Proposed Tasks
 - Problem understanding:
-  - Prepare Git (🚩) <>
-  - Define tasks (🚩) <>
-  - Understand Data (🚩) <>
-  - Prepare file hierarchy (🚩) <>
+  - Prepare Git |2025-01-06|
+  - Define tasks |2025-01-06|
+  - Understand Data |2025-01-06|
+  - Prepare file hierarchy |2025-01-06|
 
 - ETL pipeline:
 
@@ -38,3 +38,12 @@
 - [Data]() ⇒ Data folder with the required CSVs for execution;
 
 - [Config]() ⇒ Config file for global variables and adjustments to the script;
+
+
+## Legend
+|xxxx-xx-xx| ↦ To be addressed at
+<xxxx-xx-xx> ↦ Ended at
+(🚩) ↦ TODO
+(✅) ↦ Done
+(❌) ↦ To be Reviewed
+
