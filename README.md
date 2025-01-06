@@ -19,12 +19,23 @@
 
 ## Proposed Tasks
 - Problem understanding:
-  - Prepare Git |2025-01-06|
-  - Define tasks |2025-01-06|
+  - Prepare Git (✅) \<2025-01-06\>
+  - Define ETL tasks |2025-01-06|
   - Understand Data |2025-01-06|
-  - Prepare file hierarchy |2025-01-06|
+  - Prepare ETL file hierarchy |2025-01-06|
+  - Define ML tasks |2025-01-09|
+
 
 - ETL pipeline:
+  - Define an executor of commands in SQL (✅) \<2025-01-06\>
+  - Define a Logger for the ETL process (✅) \<2025-01-06\>
+  - Read CSVs |2025-01-07|
+  - Clear CSV data |2025-01-07|
+  - Add Atributes Quarter, Week, Continent |2025-01-07|
+  - Define SQL Tables |2025-01-08|
+  - Write SQL data |2025-01-08|
+  - Merge Atributes and Cluster Phases |2025-01-08|
+
 
 - ML Engineering:
 
