@@ -43,7 +43,7 @@
 ## Legend
 |xxxx-xx-xx| ↦ To be addressed at
 
-{xxxx-xx-xx} ↦ Ended at
+\<xxxx-xx-xx\> ↦ Ended at
 
 (🚩) ↦ TODO
 
