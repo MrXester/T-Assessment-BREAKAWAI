@@ -1,5 +1,8 @@
 # Technical Assessment for Breakawai
 ### (Breakawai) Data Scientist Trainee - Technical Assessment
+⚠ Made with Python 3.10 and SQLite3 ⚠
+
+
 
 ## Set Objectives
 - Create an ETL script to prepare a dataset for analysis:
@@ -47,12 +50,7 @@
 
 ## Legend
 |xxxx-xx-xx| ↦ To be addressed at
-
 \<xxxx-xx-xx\> ↦ Ended at
-
 (🚩) ↦ TODO
-
 (✅) ↦ Done
-
 (❌) ↦ To be Reviewed
-
