@@ -3,20 +3,19 @@
 ⚠ Made with Python 3.10 and SQLite3 ⚠
 
 
-
 ## Set Objectives
 - Create an ETL script to prepare a dataset for analysis:
-  - Join the 3 Procure-to-Pay CSV files into one dataset, ensuring the validity and quality of the data; (🚩) <>
-  - Add 2 new attributes to the dataset based on the Start Timestamp; (🚩) <>
-  - Add an extra attribute of the World Continent based on the country given. (🚩) <>
-  - Add a new dataset attribute to cluster the activities in phases, merging the dataset with the file "Phases_of_activities.csv" (🚩) <>
+  - Join the 3 Procure-to-Pay CSV files into one dataset, ensuring the validity and quality of the data; (🚩) \<\>
+  - Add 2 new attributes to the dataset based on the Start Timestamp; (🚩) \<\>
+  - Add an extra attribute of the World Continent based on the country given. (🚩) \<\>
+  - Add a new dataset attribute to cluster the activities in phases, merging the dataset with the file "Phases_of_activities.csv" (🚩) \<\>
 
 - Create a Machine Learning script for adding value based on the existing transformed dataset:
-  - Create an extra column in the dataset that clusters the data based multiple "unseen" patterns; (🚩) <>
-  - Explain the process and the decisions behind the machine learning techniques used to create this new column; (🚩) <>
-  - Present some visualization of the graphical clusters; (🚩) <>
+  - Create an extra column in the dataset that clusters the data based multiple "unseen" patterns; (🚩) \<\>
+  - Explain the process and the decisions behind the machine learning techniques used to create this new column; (🚩) \<\>
+  - Present some visualization of the graphical clusters; (🚩) \<\>
 
-- Deadline <2025-01-15>
+- Deadline \<2025-01-15\>
 
 ## Proposed Tasks
 - Problem understanding:
@@ -50,7 +49,11 @@
 
 ## Legend
 |xxxx-xx-xx| ↦ To be addressed at
+
 \<xxxx-xx-xx\> ↦ Ended at
+
 (🚩) ↦ TODO
+
 (✅) ↦ Done
+
 (❌) ↦ To be Reviewed
