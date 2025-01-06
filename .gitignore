@@ -174,4 +174,4 @@ cython_debug/
 
 
 #Data Extensions
-.csv
+*.csv
