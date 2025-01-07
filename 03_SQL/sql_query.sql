@@ -1,1 +1,1 @@
-*You should write your sql query code here*
+--You should write your sql query code here

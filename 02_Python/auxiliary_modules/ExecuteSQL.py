@@ -1,11 +1,11 @@
-from Exceptions import Inexistent_Command_Exception,DB_Command_Exception,DB_Connection_Exception
+from .Exceptions import Inexistent_Command_Exception,DB_Command_Exception,DB_Connection_Exception
 import re
 
 class SQL_executor(object):
 	#Class to execute code based on name in a given sql file and a given DataBase
-	def __init__(self, db_path, sql_commands_path, db_connection):
+	def __init__(self, db_path, sql_commands_files, db_connection):
 		self.db_path = db_path
-		self.sql_commands_path = sql_commands_path
+		self.sql_commands = sql_commands_files
 		self.conn = None
 		self.cursor = None
 		self.commands = {}
@@ -24,19 +24,22 @@ class SQL_executor(object):
 		#Read SQL script file and register statement on a dictionary
 		#Parses the SQL file registering commands with their respective names
 		regx = re.compile(r"-- BEGIN(.+?(?=--))(.+?(?=-- END))")
-		with open(self.sql_commands_path, 'r') as file:
-			sql_scripts = file.read().replace("\n", " ")
-			for cmd_name,statement in re.findall(regx, sql_scripts):
-				self.commands[cmd_name] = statement
+		for file_cmds in self.sql_commands:
+			with open(file_cmds, 'r') as file:
+				sql_scripts = file.read().replace("\n", " ")
+				for cmd_name,statement in re.findall(regx, sql_scripts):
+					self.commands[cmd_name] = statement
 		pass
 
 
 	def get_command(self,cmd_name):
+		#get a certain command from the registered ones in the SQL script
 		statement = self.commands.get(cmd_name,"")
 		return statement
 
 
 	def execute(self,cmd_name):
+		#receives a command name and executes it in the DB connection previously set
 		statement = self._get_command(cmd_name)
 		if len(statement) <= 0:
 			raise Inexistent_Command_Exception(cmd_name)
