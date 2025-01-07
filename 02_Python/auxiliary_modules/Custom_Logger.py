@@ -6,6 +6,7 @@ class Logging_System(object):
 		self.logging_path = logging_path
 		logging.basicConfig(filename=self.logging_path, filemode="a+",**{"format":'[%(asctime)s] %(levelname)s - %(message)s',"level":logging.INFO})
 		self.logger = logging.getLogger(logger_name)
+		self.info(f"Logger {logger_name} at file {logging_path} has correctly started")
 
 
 	def info(self, message):

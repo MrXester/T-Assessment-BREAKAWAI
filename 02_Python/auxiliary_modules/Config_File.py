@@ -13,6 +13,11 @@ class Config(ConfigParser):
 		self.OPTIONS = self["OPTIONS"]
 
 
+	def get_csv_file(self,constName):
+		csv_path = self["PATH LOCATION"]["csv_path"]
+		return os.path.join(csv_path,self["FILE LOCATION"][constName])
+
+
 	def get_log_file(self,base_name):
 		if base_name in self._logs:
 			file_name = self._logs[base_name]

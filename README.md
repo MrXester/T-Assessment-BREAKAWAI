@@ -20,18 +20,20 @@
 ## Proposed Tasks
 - Problem understanding:
   - Prepare Git (✅) \<2025-01-06\>
-  - Define ETL tasks |2025-01-06|
-  - Understand Data |2025-01-06|
-  - Prepare ETL file hierarchy |2025-01-06|
+  - Define ETL tasks |2025-01-08|
+  - Understand Data |2025-01-08|
+  - Prepare ETL file hierarchy (✅) \<2025-01-06\>
   - Define ML tasks |2025-01-09|
 
 
 - ETL pipeline:
   - Define an executor of commands in SQL (✅) \<2025-01-06\>
   - Define a Logger for the ETL process (✅) \<2025-01-06\>
-  - Read CSVs |2025-01-07|
-  - Clear CSV data |2025-01-07|
-  - Add Atributes Quarter, Week, Continent |2025-01-07|
+  - Define a Config File Parser (✅) \<2025-01-07\>
+  - Read CSVs (✅) \<2025-01-07\>
+  - Add Atributes Quarter, Week, Continent (✅) \<2025-01-07\>
+  
+  - Clear CSV data |2025-01-08|
   - Define SQL Tables |2025-01-08|
   - Write SQL data |2025-01-08|
   - Merge Atributes and Cluster Phases |2025-01-08|
@@ -41,15 +43,10 @@
 
 ## Code Summary
 - [Python](/02_Python) ⇒ Python Code folder with the ETL and ML files:
-  - [ETL](/02_Python/script_1_ETL.py) → ETL pipeline designed for Main Objective 1;
-  - [Models](/02_Python/script_2_ML.py) → ML models designed for Main Objective 2;
-  - [Visualization]() → Data visualization and Model explanation;
 
-
-- [Aux Modules](/02_Python/auxiliary_modules) ⇒ Python Code with auxiliary scripts and functions:
+- [Aux Modules](/02_Python/auxiliary_modules) ⇒ Python Code with auxiliary scripts and functions
 
 - [SQL](/03_SQL) ⇒ SQL queries folder:
-  - [Queries]() → SQL queries used as auxiliary methods to the [ETL]() pipeline;
 
 - [Data](/01_CSV) ⇒ Data folder with the required CSVs for execution;
 
@@ -68,3 +65,10 @@
 (✅) ↦ Done
 
 (❌) ↦ To be Reviewed
+
+
+## Additional Resources
+
+[Alpha3 to Country](https://www.kaggle.com/datasets/wbdill/country-codes-iso-3166) CSV by [Bdill](https://www.kaggle.com/wbdill) on Kaggle
+
+[Country to Continent](https://www.kaggle.com/datasets/hserdaraltan/countries-by-continent) CSV by [Serdar Altan](https://www.kaggle.com/hserdaraltan) on kaggle
