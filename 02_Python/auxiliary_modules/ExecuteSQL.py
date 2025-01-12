@@ -41,18 +41,17 @@ class SQL_executor(object):
 
 	def execute(self,cmd_name):
 		#receives a command name and executes it in the DB connection previously set
-		statement = self._get_command(cmd_name)
+		statement = self.get_command(cmd_name)
 		if len(statement) <= 0:
 			raise Inexistent_Command_Exception(cmd_name)
 		else:
 			try:
-				cursor.execute(statement)
-				conn.commit()
+				self.cursor.execute(statement)
+				self.conn.commit()
 
 			except Exception as e:
-				raise DB_Command_Exception(cmd_name)
+				raise DB_Command_Exception(cmd_name,e)
 		return 0
 		
-
 
 

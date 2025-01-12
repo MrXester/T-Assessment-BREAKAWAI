@@ -19,17 +19,17 @@ class Logging_System(object):
 
 	#Decorator function for events amidst script, 
 	#register exceptions in the log as well as information before and after execution
-	def wrap_log(self, pre_text, post_text, deafaultValue):
+	def wrap_log(self, pre_text, post_text, fail_text, deafaultValue):
 		def inner_decorator(func):
 			def wrapper(*args, **kwargs):
 				result = deafaultValue
 				self.info(pre_text)
 				try:
 					result = func(*args, **kwargs)
+					self.info(post_text)
 				except Exception as e:
 					self.error(e)
-				finally:
-					self.info(post_text)
+					self.error(fail_text)
 				return result
 			return wrapper
 		return inner_decorator
