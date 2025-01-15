@@ -8,14 +8,12 @@ class Config(ConfigParser):
 		self.read(pathToFile)
 		sql_path = self["PATH LOCATION"]["sql_path"]
 		self._log_path = self["PATH LOCATION"]["log_path"]
+		self._image_path = self["PATH LOCATION"]["image_path"]
 		self.SQL_SCRIPTS = [os.path.join(sql_path,file_name) for file_name in os.listdir(sql_path) if file_name.endswith(".sql")]
 		self._logs = {file_name[:-4]:os.path.join(self._log_path,file_name) for file_name in os.listdir(self._log_path) if file_name.endswith(".log")}
 
-
-
 	def get_option_cast(self,option_name,castFunction):
 		return castFunction(self["OPTIONS"][option_name])
-		 
 
 	def get_csv_file(self,constName):
 		csv_path = self["PATH LOCATION"]["csv_path"]
@@ -38,12 +36,17 @@ class Config(ConfigParser):
 		input_fact = self["FILE LOCATION"]["input_csv_files"]
 		return (os.path.join(csv_path,file_name) for file_name in os.listdir(csv_path) if file_name.endswith(".csv") and file_name.startswith(input_fact))
 	
-	def output_files_factory(self,suffixes):
+	def output_files_factory(self,suffix):
 		csv_path = self["PATH LOCATION"]["csv_path"]
 		out_fact = self["FILE LOCATION"]["output_csv_files"]
-		
-		for sufix in suffixes:
-			complement = f"{sufix}"
-			file_name = f"{out_fact}{complement}.csv"
-			yield os.path.join(csv_path,file_name),sufix
+		complement = f"{suffix}"
+		file_name = f"{out_fact}{complement}.csv"
+		return os.path.join(csv_path,file_name)
 
+	def get_image_file(self,base_name):
+		file_name = os.path.join(self._image_path,f"{base_name}.png")
+		return file_name
+
+	def csv_file_factory(self,base_name):
+		file_name = os.path.join(self["PATH LOCATION"]["csv_path"],f"{base_name}.csv")
+		return file_name

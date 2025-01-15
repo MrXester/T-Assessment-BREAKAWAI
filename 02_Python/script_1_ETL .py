@@ -1,4 +1,4 @@
-#! ../../envTABAWAI/Scripts/python.exe
+#! ../../envTBAWAI/Scripts/python.exe
 from auxiliary_modules.Custom_Logger import Logging_System
 from auxiliary_modules.ExecuteSQL import SQL_executor
 from auxiliary_modules.Exceptions import *
@@ -13,9 +13,9 @@ import json
 # Script kickstart
 CONFIG_PATH = "../config.cfg"
 CONFIG = Config(CONFIG_PATH)
-LOGGER = Logging_System(CONFIG.get_log_file("log_file"),"logger")
+LOGGER = Logging_System(CONFIG.get_log_file("log_file"),"ETL_logger")
 in_files = CONFIG.input_files()
-LOGGER.info(f"Detected files for input: {in_files}")
+LOGGER.info(f"Detected files for input: {[x for x in in_files]}")
 
 
 
@@ -47,8 +47,6 @@ def read_Phases():
 
 
 
-
-
 def read_inputs():
 	global CONFIG
 	input_files = CONFIG.input_files()
@@ -58,7 +56,6 @@ def read_inputs():
 	ref_data = pd.concat(input_csvs)
 	ref_data = ref_data.reset_index(drop=True)
 	return ref_data
-
 
 
 
@@ -118,7 +115,7 @@ def validate_discount_value(ref_data):
 
 @log_validation
 def validate_duplicates(ref_data):
-	return ~ref_data.duplicated(subset=ref_data.columns, keep=False)
+	return ~ref_data.duplicated(subset=ref_data.columns, keep="first")
 
 @log_validation
 def validate_missing(ref_data):
@@ -158,7 +155,8 @@ def process_iso_codes(ref_data, validation, ISO_data):
 			ref_data.loc[int(index),'Country'] = match_code
 			validation[index] = True
 			LOGGER.info(f"Found a match for line {index} - Changing [{before_imput}]  to [{ref_data.loc[int(index),'Country']}]")
-	pass
+	
+	return ref_data
 
 
 
@@ -220,7 +218,6 @@ def create_SQL_manager():
 	global CONFIG
 	sql_files = CONFIG.SQL_SCRIPTS
 	db_file = CONFIG.get_db_file()
-	print(db_file)
 	db_connection = sqlite3.connect(db_file)
 
 	sql_exec = SQL_executor(sql_files,db_connection)
@@ -256,31 +253,13 @@ def get_joint_table(sql_manager,db_connection):
 	return df
 
 
-
-# Output CSV
-def filter_results(ref_data, quarters):
-	return ref_data[ref_data["Quarter"].isin(quarters)]
-
-def output_csv(ref_data,quarters):
-	for path,quarter in CONFIG.output_files_factory(quarters):
-		ref_data[ref_data["Quarter"].isin(quarters)].to_csv(path,index=False)
-	pass
-
-def parse_list(value):
-	items = [item.strip() for item in value.strip("[]").split(",")]
-	return items
-
-
 def parse_bool(value):
 	return value.strip().upper() == "TRUE"
 
 
 
-
-
-
-
-if __name__ == '__main__':
+@LOGGER.wrap_log("Running ETL","Task successfull","Failed to Execute Script",None)
+def ETL_pipeline():
 	iso = strip_columns(read_ISO())
 	cont = strip_columns(read_Continents())
 	phases = strip_columns(read_Phases())
@@ -293,12 +272,12 @@ if __name__ == '__main__':
 	ref_data = add_timestamps_atributes(ref_data)
 
 	invalid_iso = validate_country_ISO(ref_data,iso)
-	process_iso_codes(ref_data, invalid_iso, iso)
+	ref_data = process_iso_codes(ref_data, invalid_iso, iso)
 	ref_data = ref_data[invalid_iso]
 
 	ref_data = ref_data.reset_index(drop=True)
-	SQL_MANAGER,DB_CONN = create_SQL_manager()
 
+	SQL_MANAGER,DB_CONN = create_SQL_manager()
 	start_db = CONFIG.get_option_cast("start_db_file",parse_bool)
 	if start_db:
 		SQL_kickstart(SQL_MANAGER,DB_CONN,iso, cont, phases)
@@ -309,20 +288,12 @@ if __name__ == '__main__':
 	ref_data = get_joint_table(SQL_MANAGER,DB_CONN)
 	ref_data.columns = old_column_names + ["Continent","Phase"]
 	ref_data['Phase'] = "Phase " + ref_data['Phase'].astype(str)
-	quarter_list = CONFIG.get_option_cast("quarters_to_output",parse_list)
-	ref_data = filter_results(ref_data, quarter_list).reset_index(drop=True)
-	output_csv(ref_data,quarter_list)
+	ref_data.to_csv(CONFIG.get_csv_file("intermediary_csv_file"),index=False)
+	pass
 
 
 
 
-
-
-
-
-
-
-
-
-
+if __name__ == '__main__':
+	ETL_pipeline()
 

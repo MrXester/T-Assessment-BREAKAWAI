@@ -5,7 +5,6 @@ class Failed_Command_Exception(Exception):
 			message = "Unknown Error"
 		super().__init__(f"{header} :: {message}")
 
-
 class Inexistent_Command_Exception(Failed_Command_Exception):
 	def __init__(self, cmd_name):
 		super().__init__(cmd_name,message="Command does not exist")

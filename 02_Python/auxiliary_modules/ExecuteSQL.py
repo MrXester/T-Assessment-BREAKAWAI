@@ -19,8 +19,6 @@ class SQL_executor(object):
 			raise DB_Connection_Exception(e)
 
 
-
-
 	def _read_commands(self):
 		#Read SQL script file and register statement on a dictionary
 		#Parses the SQL file registering commands with their respective names

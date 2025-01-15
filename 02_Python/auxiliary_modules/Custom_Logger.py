@@ -8,7 +8,6 @@ class Logging_System(object):
 		self.logger = logging.getLogger(logger_name)
 		self.info(f"Logger {logger_name} at file {logging_path} has correctly started")
 
-
 	def info(self, message):
 		self.logger.info(message)
 		pass
