@@ -1,4 +1,3 @@
-#! ../../envTBAWAI/Scripts/python.exe
 from auxiliary_modules.Custom_Logger import Logging_System
 from auxiliary_modules.ExecuteSQL import SQL_executor
 from auxiliary_modules.Exceptions import *
